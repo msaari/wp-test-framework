@@ -22,7 +22,11 @@ You need to have a WordPress instance downloaded locally into a directory where 
 Next, you do not need to install WP in there but instead you need a `wp-tests-config.php` file to be available. It is similar to a regular `wp-config.php` but is solely for testing purposes.
 
 You can find an example configuration at `https://develop.svn.wordpress.org/trunk/wp-tests-config-sample.php`. Copy the contents into the WordPress root
-directory (`ABSPATH`) and set up the configuration for your system (databases, etc.).
+directory (`ABSPATH`) and set up the configuration for your system (databases, etc.). You may need to adjust the `ABSPATH` setting in the test config file, as the example configuration refers to a setup with `build` and `src` directories. Setting the `ABSPATH` to
+
+    define( 'ABSPATH', dirname( __FILE__ ) . '/' );
+
+will fix this issue.
 
 Your plugin/theme can (and probably should) live outside the WordPress testing installation.
 
